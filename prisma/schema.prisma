@@ -2,10 +2,20 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  priority    String   @default("low")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

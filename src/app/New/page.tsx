@@ -1,6 +1,11 @@
-import Image from "next/image";
+import { TaskForm } from "./task-form"
 
-export default function Home() {
-  return <div>HomePage</div>;
+function NewPage() {
+  return (
+    <div className="flex justify-center items-center h-screen">
+     <TaskForm /> 
+    </div>
+  )
 }
 
+export default NewPage
